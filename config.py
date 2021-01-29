@@ -1,27 +1,40 @@
 import os
-import twint
 
 FILE_ROOT = "./twitter_data/"
 
-# 爬虫配置
-config = twint.Config()
 
 # 配置按名爬取
-def configUname(username, nowTime):
-    FILE_PATH = FILE_ROOT + nowTime
-    if not os.path.exists(FILE_PATH):
-        os.makedirs(FILE_PATH)
+def configUname(conf, username, nowTime):
+    file_path = FILE_ROOT + nowTime
+    if not os.path.exists(file_path):
+        os.makedirs(file_path)
     
-    OUTPUT_PATH =  FILE_PATH + '/' + username +  ".json"
+    output_path = file_path + '/' + username + ".json"
 
-    # global config
-    config.Username = username
-    config.Store_json = True
-    config.Retweets = True
-    config.Output = OUTPUT_PATH
+    conf.Username = username
+    conf.Store_json = True
+    conf.Retweets = True
+    conf.Output = output_path
     # 重置User_id，避免爬取列表用户数据重复
-    config.User_id = None
+    conf.User_id = None
 
-    # config.Proxy_host = '127.0.0.1'
-    # config.Proxy_port = 10808
-    # config.Proxy_type = 'socks5'
+    # conf.Proxy_host = '127.0.0.1'
+    # conf.Proxy_port = 10808
+    # conf.Proxy_type = 'socks5'
+
+    return conf
+
+
+# 配置ALL方法
+def configMention(conf, outfile, username):
+    conf.Output = outfile
+    conf.Store_json = True
+    conf.Lang = 'zh'
+    conf.Min_likes = 2
+    conf.All = username
+
+    # conf.Proxy_host = '127.0.0.1'
+    # conf.Proxy_type = 'socks5'
+    # conf.Proxy_port = 10808
+
+    return conf

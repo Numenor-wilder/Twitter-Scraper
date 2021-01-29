@@ -3,6 +3,7 @@ import json
 # 去重list变量
 existed = []
 
+
 # 写入用户名
 def writeName(roster, js):
     username = js['username']
@@ -12,7 +13,8 @@ def writeName(roster, js):
             file.writelines(username)
             file.writelines('\n')
 
-# 提取并生成名单
+
+# 提取username并生成名单
 def extractUname(raw, roster):
     with open(raw, 'r', encoding='utf-8') as file:
         while True:

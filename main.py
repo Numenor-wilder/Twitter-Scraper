@@ -1,16 +1,17 @@
-import scrape
+import twint
+import scraper
 
 LIST_PATH = "./list.txt"
-MENTIONED_PATH = "./mention.json"
+MENTIONED_PATH = "./mentioned.json"
 
-
-def run():
-    scrape.makeList(MENTIONED_PATH, LIST_PATH)
-    scrape.scraping(LIST_PATH)
+# def run():
+#     config1 = twint.Config()
+#     scraper.mentioned(config1, MENTIONED_PATH, 'iingwen')
 
 
 def main():
-    run()
+    config = twint.Config()
+    scraper.userlistThread(config, MENTIONED_PATH, LIST_PATH)
 
 
 if __name__ == '__main__':
