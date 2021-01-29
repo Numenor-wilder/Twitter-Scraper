@@ -2,14 +2,14 @@ import twint
 import datetime
 
 import config
-import extractName
+import makeRoster
 
 TIMEFORMAT = '%Y%m%d%H%M%S'
 
 
 # 生成目标名单
-def makeList(raw, list):
-    extractName.extractUname(raw, list)
+def makeList(raw, roster):
+    makeRoster.extractUname(raw, roster)
 
 # 按username爬取profile
 def scraping(list):

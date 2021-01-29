@@ -8,7 +8,7 @@ def writeName(roster, js):
     username = js['username']
     with open(roster, 'a+', encoding='utf-8') as file:
         if username not in existed:
-            existed.append(json)
+            existed.append(username)
             file.writelines(username)
             file.writelines('\n')
 
