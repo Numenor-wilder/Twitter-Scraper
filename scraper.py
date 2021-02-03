@@ -10,7 +10,7 @@ def mentioned(config, outfile, username):
 # 通过列表获取用户时间线
 def userlistThread(config, raw, manifest):
     roster.makeList(raw, manifest)
-    thread.getTweetsbylist(roster, config)
+    thread.getTweetsbylist(manifest, config)
 
 
 # 获取单个用户时间线
