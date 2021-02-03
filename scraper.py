@@ -1,3 +1,4 @@
+import roster
 import thread
 import mention
 
@@ -6,10 +7,12 @@ def mentioned(config, outfile, username):
     mention.getMentioned(config, outfile, username)
 
 
-def userlistThread(config, raw, roster):
-    thread.makeList(raw, roster)
+# 通过列表获取用户时间线
+def userlistThread(config, raw, manifest):
+    roster.makeList(raw, manifest)
     thread.getTweetsbylist(roster, config)
 
 
+# 获取单个用户时间线
 def userThread(config, username):
     thread.getTweetsbyone(username, config)
