@@ -6,11 +6,11 @@ existed = set()
 
 # 写入用户名
 def writeName(manifest, js):
-    username = js['username']
+    user_id = js['user_id']
     with open(manifest, 'a+', encoding='utf-8') as file:
-        if username not in existed:
-            existed.add(username)
-            file.writelines(username)
+        if user_id not in existed:
+            existed.add(user_id)
+            file.writelines(str(user_id))
             file.writelines('\n')
 
 
