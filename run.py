@@ -15,10 +15,10 @@ def post():
 # 爬取回复中心用户的评论
 def replies():
     config = twint.Config()
-    scraper.mentioned(config, c.MENTIONED_PATH, c.coreAccount)
+    scraper.mentioned(config, c.MENTIONED_JSON, c.coreAccount)
 
 
 # 爬取用户时间线
 def thread():
     config = twint.Config()
-    scraper.userlistThread(config, c.MENTIONED_PATH, c.LIST_PATH)
+    scraper.userlistThread(config, c.MENTIONED_JSON, c.LIST_PATH)

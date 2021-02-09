@@ -12,7 +12,7 @@ def getTweetsbylist(roster, conf):
         theTime = datetime.datetime.now().strftime(TIME_FORMAT)
         for userid in file:
             c = parameter.configUname(conf, userid.strip(), theTime)
-            twint.run.Search(c)
+            twint.run.Profile(c)
 
 
 # 爬取单独的username下的Tweets
